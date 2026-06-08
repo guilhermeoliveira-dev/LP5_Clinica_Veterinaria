@@ -20,4 +20,9 @@ public class EstadoAgendado implements IEstadoAtendimento {
     public void finalizarAtendimento(Atendimento contexto) {
         throw new IllegalStateException("Um atendimento agendado não pode ser finalizado.");
     }
+
+    @Override
+    public void emitirNotificacao(Atendimento contexto) {
+
+    }
 }

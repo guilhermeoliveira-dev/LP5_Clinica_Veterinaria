@@ -6,4 +6,5 @@ public interface IEstadoAtendimento {
     void iniciarAtendimento(Atendimento contexto);
     void finalizarAtendimento(Atendimento contexto);
 
+    void emitirNotificacao(Atendimento contexto);
 }
