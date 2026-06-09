@@ -8,11 +8,14 @@ import org.example.veterinaria.notificacao.Notificacao;
 public class Tutor implements IAtendimentoSubscriber {
 
     private String email;
-    private ILogger logger;
+    private String nome;
+    private final ILogger logger;
 
-    public Tutor(String email, ILogger logger){
+
+    public Tutor(String nome, String email, ILogger logger){
         this.email = email;
         this.logger = logger;
+        this.nome = nome;
     }
 
     @Override
@@ -24,4 +27,9 @@ public class Tutor implements IAtendimentoSubscriber {
     public String getEmail() {
         return email;
     }
+
+    public String getNome(){
+        return nome;
+    }
+
 }

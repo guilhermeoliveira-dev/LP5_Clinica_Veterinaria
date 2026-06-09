@@ -2,7 +2,7 @@ package org.example.veterinaria.atendimento;
 
 public class EstadoAgendado implements IEstadoAtendimento {
 
-    EstadoAgendado(){
+    protected EstadoAgendado(){
 
     }
 

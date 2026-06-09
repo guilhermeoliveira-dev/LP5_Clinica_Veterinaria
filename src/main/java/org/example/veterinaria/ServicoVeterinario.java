@@ -1,4 +1,5 @@
 package org.example.veterinaria;
 
-public class ServicoVeterinario {
+public record ServicoVeterinario(String servico, double valorBase) {
+
 }

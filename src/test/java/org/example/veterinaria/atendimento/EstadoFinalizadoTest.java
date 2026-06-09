@@ -15,7 +15,12 @@ public class EstadoFinalizadoTest {
 
     @BeforeEach
     void beforeEach(){
-        atendimento = new Atendimento(new Animal(), new Tutor("email@email.com", MockLogger.get()), new ServicoVeterinario(), new Veterinario("email@email.com", MockLogger.get()), 10);
+        atendimento = new AtendimentoBuilder()
+                .paraAnimal(new Animal("pitoco", "golden retriever", "cachorro", true))
+                .deTutor(new Tutor("joão", "email@email.com", MockLogger.get()))
+                .comServico(new ServicoVeterinario("vacinação", 100))
+                .comVeterinario(new Veterinario("email@email.com", MockLogger.get()))
+                .build();
         atendimento.iniciarAtendimento();
         atendimento.finalizarAtendimento();
     }

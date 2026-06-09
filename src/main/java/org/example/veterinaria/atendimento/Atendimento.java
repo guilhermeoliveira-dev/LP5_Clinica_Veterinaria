@@ -5,35 +5,39 @@ import org.example.veterinaria.ServicoVeterinario;
 import org.example.veterinaria.Tutor;
 import org.example.veterinaria.Veterinario;
 import org.example.veterinaria.notificacao.NotificacaoPublisher;
+import org.example.veterinaria.preco.IPrecoAtendimento;
 
 public class Atendimento {
 
     private IEstadoAtendimento estado;
 
-    private Animal animal;
-    private Tutor tutor;
-    private ServicoVeterinario servico;
-    private final double valorBase;
+    private final Animal animal;
+    private final Tutor tutor;
+    private final ServicoVeterinario servico;
+    private IPrecoAtendimento preco;
     private Veterinario veterinario;
 
     private NotificacaoPublisher notificacaoPublisher;
 
-    public Atendimento(Animal animal, Tutor tutor, ServicoVeterinario servico, Veterinario veterinario, double valorBase){
+    Atendimento(Animal animal, Tutor tutor, ServicoVeterinario servico, Veterinario veterinario, IPrecoAtendimento preco){
         estado = new EstadoAgendado();
         this.animal = animal;
         this.tutor = tutor;
         this.servico = servico;
         this.veterinario = veterinario;
-        this.valorBase = valorBase;
+        this.preco = preco;
         notificacaoPublisher = new NotificacaoPublisher(this);
     }
+
+    public void aplicarAdicionalPreco(IPrecoAtendimento novoDecorador) {
+        this.preco = novoDecorador;
+    }
+
 
     public void atualizarEstado(IEstadoAtendimento estado){
         this.estado = estado;
         emitirNotificacao();
     }
-
-
 
     public void cancelar(){
         estado.cancelar(this);
@@ -75,7 +79,7 @@ public class Atendimento {
     }
 
     public double getValorFinal(){
-        return valorBase;
+        return preco.calcular();
     }
 
     @Override

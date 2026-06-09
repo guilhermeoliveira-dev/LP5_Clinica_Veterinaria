@@ -1,4 +1,5 @@
 package org.example.veterinaria;
 
-public class Animal {
+public record Animal(String nome, String raca, String especie, boolean adotado) {
+
 }
