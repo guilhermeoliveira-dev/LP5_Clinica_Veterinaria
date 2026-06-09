@@ -1,7 +1,11 @@
-# LP5_Projeto_Base
+# LP5_Clinica_Veterinaria
 
-Este projeto visa servir como base para as atividades feitas para a disciplina de Linguagem de Programação 5, que tem como intuito desenvolver padrões de projeto em java, incluindo testes e diagramas de classe como documentação.
+Neste projeto, visamos implementar um sistema de uma clínica veterinária. Para tal, foi feito o uso de diversos padrões de projeto, de modo a cumprir o objetivo de forma limpa e abrindo espaço para expansão das funcionalidades.
 
 ## Diagrama de Classe
 
 ![print_diagrama.png](print_diagrama.png)
+
+## Diagrama de Estados do Atendimento
+
+![print_diagrama_estado.png](print_diagrama_estado.png)
