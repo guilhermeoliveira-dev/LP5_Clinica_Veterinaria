@@ -29,10 +29,6 @@ public class Atendimento {
         notificacaoPublisher = new NotificacaoPublisher(this);
     }
 
-    public void aplicarAdicionalPreco(IPrecoAtendimento novoDecorador) {
-        this.preco = novoDecorador;
-    }
-
 
     public void atualizarEstado(IEstadoAtendimento estado){
         this.estado = estado;

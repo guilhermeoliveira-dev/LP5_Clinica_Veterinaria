@@ -23,9 +23,9 @@ public class NotificacaoPublisher {
 
         Arrays.stream(TipoNotificacao.values()).forEach((tipo) -> canais.put(tipo, new ArrayList<>()));
 
-        canais.get(TipoNotificacao.ATENDIMENTO_INICIADO).add(atendimento.getTutor());
-        canais.get(TipoNotificacao.ATENDIMENTO_CANCELADO).add(atendimento.getVeterinario());
-        canais.get(TipoNotificacao.ATENDIMENTO_FINALIZADO).add(Recepcao.get());
+        inscrever(TipoNotificacao.ATENDIMENTO_INICIADO, atendimento.getTutor());
+        inscrever(TipoNotificacao.ATENDIMENTO_CANCELADO, atendimento.getVeterinario());
+        inscrever(TipoNotificacao.ATENDIMENTO_FINALIZADO, Recepcao.get());
     }
 
     public void emitirNotificacao(Notificacao notificacao) {
@@ -36,5 +36,13 @@ public class NotificacaoPublisher {
         }
         );
 
+    }
+
+    public void inscrever(TipoNotificacao canal, IAtendimentoSubscriber subscriber){
+        canais.get(canal).add(subscriber);
+    }
+
+    public void desinscrever(TipoNotificacao canal, IAtendimentoSubscriber subscriber){
+        canais.get(canal).remove(subscriber);
     }
 }
