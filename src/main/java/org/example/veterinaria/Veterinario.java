@@ -24,4 +24,11 @@ public class Veterinario implements IAtendimentoSubscriber {
     public String getEmail() {
         return email;
     }
+
+    @Override
+    public String toString(){
+
+        return email;
+
+    }
 }

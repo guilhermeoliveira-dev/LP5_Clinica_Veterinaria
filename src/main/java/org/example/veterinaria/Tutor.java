@@ -32,4 +32,11 @@ public class Tutor implements IAtendimentoSubscriber {
         return nome;
     }
 
+    @Override
+    public String toString(){
+
+        return email;
+
+    }
+
 }

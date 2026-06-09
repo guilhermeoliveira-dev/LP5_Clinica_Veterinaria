@@ -84,7 +84,7 @@ public class Atendimento {
                 .append("Serviço : \"").append(servico.toString()).append("\", ")
                 .append("Animal: \"").append(animal.toString()).append("\", ")
                 .append("Tutor: \"").append(animal.toString()).append("\", ")
-                .append("Valor: R$").append(getValorFinal()).append(".");
+                .append("Valor: R$").append(getValorFinal());
         return b.toString();
     }
 }
